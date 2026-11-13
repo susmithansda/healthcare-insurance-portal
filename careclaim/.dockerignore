@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.env
+server/.env
+server/data
+server/uploads
+.sites-runtime
+.media-tools
+client/public/media/.build
+test-results
+playwright-report
+*.log

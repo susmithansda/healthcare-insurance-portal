@@ -1,0 +1,91 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.9.0
+2 info using node@v24.14.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\susmi\OneDrive\Desktop\Mediclaim\careclaim\.npmrc
+5 silly config load:file:C:\Users\susmi\.npmrc
+6 silly config load:file:C:\Users\susmi\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm ci
+8 verbose argv "ci"
+9 verbose logfile logs-max:10 dir:C:\Users\susmi\OneDrive\Desktop\Mediclaim\.npm-cache\_logs\2026-11-12T15_35_49_380Z-
+10 verbose logfile C:\Users\susmi\OneDrive\Desktop\Mediclaim\.npm-cache\_logs\2026-11-12T15_35_49_380Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest @playwright/test@^1.56.0
+15 silly packumentCache full:https://registry.npmjs.org/@playwright%2ftest cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@playwright%2ftest 7147ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/@playwright%2ftest set size:undefined disposed:false
+18 silly placeDep ROOT @playwright/test@1.65.0 OK for: careclaim@1.0.0 want: ^1.56.0
+19 silly fetch manifest playwright@1.65.0
+20 silly packumentCache full:https://registry.npmjs.org/playwright cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/playwright 7222ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/playwright set size:undefined disposed:false
+23 silly placeDep ROOT playwright@1.65.0 OK for: @playwright/test@1.65.0 want: 1.65.0
+24 silly fetch manifest playwright-core@1.65.0
+25 silly packumentCache full:https://registry.npmjs.org/playwright-core cache-miss
+26 http fetch GET 200 https://registry.npmjs.org/playwright-core 5878ms (cache miss)
+27 silly packumentCache full:https://registry.npmjs.org/playwright-core set size:undefined disposed:false
+28 silly placeDep ROOT playwright-core@1.65.0 OK for: playwright@1.65.0 want: 1.65.0
+29 verbose stack Error: 
+29 verbose stack `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+29 verbose stack
+29 verbose stack Missing: @playwright/test@1.65.0 from lock file
+29 verbose stack Missing: playwright@1.65.0 from lock file
+29 verbose stack Missing: playwright-core@1.65.0 from lock file
+29 verbose stack
+29 verbose stack Clean install a project
+29 verbose stack
+29 verbose stack Usage:
+29 verbose stack npm ci
+29 verbose stack
+29 verbose stack Options:
+29 verbose stack [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+29 verbose stack [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+29 verbose stack [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+29 verbose stack [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]
+29 verbose stack [--allow-git <all|none|root>] [--no-audit] [--no-bin-links] [--no-fund]
+29 verbose stack [--dry-run]
+29 verbose stack [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+29 verbose stack [--workspaces] [--include-workspace-root] [--install-links]
+29 verbose stack
+29 verbose stack aliases: clean-install, ic, install-clean, isntall-clean
+29 verbose stack
+29 verbose stack Run "npm help ci" for more info
+29 verbose stack     at CI.usageError (C:\Program Files\nodejs\node_modules\npm\lib\base-cmd.js:111:26)
+29 verbose stack     at CI.exec (C:\Program Files\nodejs\node_modules\npm\lib\commands\ci.js:71:18)
+29 verbose stack     at async Npm.exec (C:\Program Files\nodejs\node_modules\npm\lib\npm.js:208:9)
+29 verbose stack     at async module.exports (C:\Program Files\nodejs\node_modules\npm\lib\cli\entry.js:67:5)
+30 error code EUSAGE
+31 error
+31 error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+31 error
+31 error Missing: @playwright/test@1.65.0 from lock file
+31 error Missing: playwright@1.65.0 from lock file
+31 error Missing: playwright-core@1.65.0 from lock file
+31 error
+31 error Clean install a project
+31 error
+31 error Usage:
+31 error npm ci
+31 error
+31 error Options:
+31 error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+31 error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+31 error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+31 error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]
+31 error [--allow-git <all|none|root>] [--no-audit] [--no-bin-links] [--no-fund]
+31 error [--dry-run]
+31 error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+31 error [--workspaces] [--include-workspace-root] [--install-links]
+31 error
+31 error aliases: clean-install, ic, install-clean, isntall-clean
+31 error
+31 error Run "npm help ci" for more info
+32 verbose cwd C:\Users\susmi\OneDrive\Desktop\Mediclaim\careclaim
+33 verbose os Windows_NT 10.0.26300
+34 verbose node v24.14.0
+35 verbose npm  v11.9.0
+36 verbose exit 1
+37 verbose code 1
+38 error A complete log of this run can be found in: C:\Users\susmi\OneDrive\Desktop\Mediclaim\.npm-cache\_logs\2026-11-12T15_35_49_380Z-debug-0.log

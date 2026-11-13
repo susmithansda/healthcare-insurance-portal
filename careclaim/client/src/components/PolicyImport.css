@@ -1,0 +1,85 @@
+.policy-import-overlay { position: fixed; inset: 0; z-index: 2200; background: #060a07c9; backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; padding: 25px; overflow-y: auto; }
+.policy-import-dialog { width: min(100%, 760px); max-height: calc(100dvh - 50px); overflow-y: auto; outline: none; background: var(--surface); border: 1px solid var(--line); color: var(--ink); border-radius: 17px; padding: 30px; box-shadow: 0 20px 100px #0005; }
+.policy-import-heading { display: flex; gap: 20px; align-items: flex-start; justify-content: space-between; margin-bottom: 25px; }
+.policy-import-heading .eyebrow { font-size: 9px; letter-spacing: 1.8px; color: var(--accent); }
+.policy-import-heading h2 { font-size: 28px; letter-spacing: -1px; margin: 10px 0; font-weight: 550; }
+.policy-import-heading p { font-size: 12px; line-height: 1.8; color: var(--muted); }
+.policy-import-heading .icon-button { flex-shrink: 0; }
+.policy-import-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.policy-import-sources button { background: transparent; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); padding: 17px; display: flex; align-items: center; gap: 12px; text-align: left; }
+.policy-import-sources button[aria-pressed="true"] { background: var(--surface-soft); border-color: var(--accent); color: var(--accent); }
+.policy-import-sources strong { display: block; font-size: 13px; font-weight: 550; color: var(--ink); }
+.policy-import-sources small { display: block; font-size: 10px; margin-top: 5px; color: var(--muted); }
+.policy-import-notice { display: flex; align-items: flex-start; gap: 11px; border: 1px solid var(--line); background: var(--surface-soft); padding: 15px; border-radius: 9px; }
+.policy-import-notice > svg { color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.policy-import-notice strong { font-size: 12px; font-weight: 550; color: var(--ink); }
+.policy-import-notice p { font-size: 11px; line-height: 1.8; color: var(--muted); }
+.policy-import-notice strong + p { margin-top: 5px; }
+.policy-import-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 19px 0; }
+.policy-import-plans article { border: 1px solid var(--line); border-radius: 11px; padding: 20px; }
+.policy-import-plans article > span { display: grid; place-items: center; height: 40px; width: 40px; border-radius: 10px; background: var(--surface-soft); color: var(--accent); margin-bottom: 16px; }
+.policy-import-plans h3 { font-size: 15px; font-weight: 550; letter-spacing: -.3px; }
+.policy-import-plans p { font-size: 11px; color: var(--muted); line-height: 1.8; margin-top: 8px; }
+.policy-import-plans article strong { display: block; font-size: 25px; letter-spacing: -.6px; font-weight: 500; margin-top: 21px; color: var(--ink); }
+.policy-import-plans article small { display: block; color: var(--muted); font-size: 10px; letter-spacing: 0; margin-top: 6px; }
+.policy-import-caption { display: flex; align-items: center; gap: 8px; font-size: 10px; line-height: 1.9; color: var(--muted); margin: 14px 0 0; }
+.policy-import-caption > svg { flex-shrink: 0; }
+.policy-import-template { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.policy-import-template h3 { font-size: 14px; font-weight: 550; }
+.policy-import-template p { font-size: 11px; color: var(--muted); line-height: 1.8; margin-top: 6px; }
+.policy-import-template .button { flex-shrink: 0; font-size: 10px; padding: 10px 12px; }
+.policy-import-drop { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 155px; border: 1px dashed var(--accent); background: var(--surface-soft); border-radius: 10px; position: relative; text-align: center; padding: 22px; color: var(--accent); overflow: hidden; }
+.policy-import-drop:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+.policy-import-drop strong { max-width: 100%; font-size: 13px; font-weight: 550; color: var(--ink); overflow-wrap: anywhere; }
+.policy-import-drop span { font-size: 10px; color: var(--muted); }
+.policy-import-drop input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.policy-import-preview { margin-top: 18px; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.policy-import-preview > div:first-child { display: flex; align-items: center; gap: 8px; padding: 13px; border-bottom: 1px solid var(--line); color: var(--accent); }
+.policy-import-preview > div:first-child strong { font-size: 11px; font-weight: 550; color: var(--ink); }
+.policy-import-preview > div:first-child span { margin-left: auto; font-size: 9px; color: var(--muted); }
+.policy-import-preview table { width: 100%; border-collapse: collapse; font-size: 11px; text-align: left; white-space: nowrap; }
+.policy-import-preview th { font-size: 8px; letter-spacing: 1px; color: var(--muted); padding: 13px; background: var(--surface-soft); }
+.policy-import-preview td { padding: 13px; border-top: 1px solid var(--line); color: var(--ink); }
+.policy-import-preview td strong { display: block; font-size: 11px; font-weight: 500; }
+.policy-import-preview td small { display: block; margin-top: 5px; font-size: 9px; color: var(--muted); }
+.policy-import-csv > .policy-import-notice { margin-top: 15px; }
+.policy-import-actions { display: flex; justify-content: space-between; gap: 15px; padding-top: 22px; border-top: 1px solid var(--line); margin-top: 23px; }
+.policy-import-actions .button { font-size: 12px; }
+.policy-import-dialog > .form-error { margin-top: 18px; line-height: 1.8; }
+.claim-policy-empty { display: flex; align-items: center; gap: 13px; margin: 0 0 23px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 10px; padding: 17px; }
+.claim-policy-empty > svg { color: var(--accent); flex-shrink: 0; }
+.claim-policy-empty > div { flex: 1; }
+.claim-policy-empty h3 { color: var(--ink); font-size: 13px; font-family: inherit; font-weight: 550; }
+.claim-policy-empty p { color: var(--muted); font-size: 11px; line-height: 1.8; margin-top: 5px; }
+.claim-policy-empty .button { flex-shrink: 0; font-size: 11px; padding: 10px 12px; }
+.policy-card .policy-sample-tag { border: 1px solid var(--line); border-radius: 5px; color: var(--muted); font-size: 9px; display: inline-block; padding: 3px 6px; margin-top: 12px; }
+.policy-card .policy-number, .policy-card .policy-progress-label, .policy-card .policy-sum small { color: var(--muted); }
+.policy-card .policy-sum { color: var(--ink); }
+.policy-card .policy-progress { background: var(--surface-soft); }
+.policy-card .policy-progress > span { background: var(--accent); }
+@media (max-width: 760px) {
+  .policy-import-overlay { padding: 15px; align-items: flex-start; }
+  .policy-import-dialog { padding: 22px 18px; max-height: calc(100dvh - 30px); border-radius: 12px; }
+  .policy-import-heading h2 { font-size: 24px; }
+  .policy-import-heading p { font-size: 11px; }
+  .policy-import-sources { gap: 9px; }
+  .policy-import-sources button { padding: 12px; gap: 8px; align-items: flex-start; }
+  .policy-import-sources button > svg { width: 17px; flex-shrink: 0; }
+  .policy-import-sources strong { font-size: 11px; }
+  .policy-import-sources small { font-size: 9px; line-height: 1.7; }
+  .policy-import-plans { grid-template-columns: 1fr; gap: 11px; }
+  .policy-import-plans article { display: flex; gap: 14px; padding: 15px; }
+  .policy-import-plans article > span { flex-shrink: 0; margin: 0; }
+  .policy-import-plans h3 { font-size: 14px; }
+  .policy-import-plans article strong { font-size: 22px; margin-top: 12px; }
+  .policy-import-caption { align-items: flex-start; }
+  .policy-import-caption > svg { margin-top: 3px; }
+  .policy-import-template { flex-direction: column; align-items: flex-start; }
+  .policy-import-preview > div:first-child { flex-wrap: wrap; }
+  .policy-import-preview > div:first-child span { margin-left: 24px; }
+  .policy-import-actions { gap: 10px; }
+  .policy-import-actions .button { font-size: 11px; padding: 11px; }
+  .claim-policy-empty { flex-wrap: wrap; }
+  .claim-policy-empty > div { flex-basis: calc(100% - 45px); }
+  .claim-policy-empty .button { margin-left: 35px; }
+}

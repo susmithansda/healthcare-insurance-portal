@@ -1,0 +1,546 @@
+{
+  "info": {
+    "name": "CareClaim — Medical Mediclaim REST API",
+    "description": "API explorer for the local CareClaim project. Start the Express server first. Import this file into Postman, select a demo role login, then run the desired protected requests individually. Demo logins require synthetic seeding. This is not an unattended collection-runner sequence: review and checkout requests mutate sample records, and role requirements differ. Never put real credentials or captured tokens into the committed JSON. The static hosted preview has no Express API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "claimId",
+      "value": "claim-3",
+      "type": "string"
+    },
+    {
+      "key": "policyId",
+      "value": "policy-1",
+      "type": "string"
+    },
+    {
+      "key": "orderId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "documentId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "API health and runtime mode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": "{{baseUrl}}/health",
+            "description": "Reports demo/mongodb storage mode and demo/razorpay/disabled payment provider."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authentication and profile",
+      "item": [
+        {
+          "name": "Login — patient (synthetic demo)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"patient@careclaim.demo\",\n  \"password\": \"Demo@12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/login",
+            "description": "Run the intended role's login before exploring protected requests. Saves only the returned token to this collection's local token variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().token; if (value) pm.collectionVariables.set('token', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login — hospital (synthetic demo)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"hospital@careclaim.demo\",\n  \"password\": \"Demo@12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/login",
+            "description": "Run the intended role's login before exploring protected requests. Saves only the returned token to this collection's local token variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().token; if (value) pm.collectionVariables.set('token', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login — officer (synthetic demo)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"officer@careclaim.demo\",\n  \"password\": \"Demo@12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/login",
+            "description": "Run the intended role's login before exploring protected requests. Saves only the returned token to this collection's local token variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().token; if (value) pm.collectionVariables.set('token', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login — admin (synthetic demo)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@careclaim.demo\",\n  \"password\": \"Demo@12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/login",
+            "description": "Run the intended role's login before exploring protected requests. Saves only the returned token to this collection's local token variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().token; if (value) pm.collectionVariables.set('token', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register a synthetic patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Demo Student\",\n  \"email\": \"student-demo@example.test\",\n  \"password\": \"DemoStudent123\",\n  \"phone\": \"9876543200\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/register",
+            "description": "Example demonstration account only. Change the email to avoid a duplicate. Public registration cannot create staff; this user needs an operator-assigned policy before submitting a claim."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().token; if (value) pm.collectionVariables.set('token', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Current user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/auth/me",
+            "description": ""
+          }
+        },
+        {
+          "name": "Update contact details",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Aarav Sharma\",\n  \"phone\": \"9876543210\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/profile",
+            "description": "Updates the authenticated user's own profile."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Claims and documents",
+      "item": [
+        {
+          "name": "List authorized claims",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/claims",
+            "description": ""
+          }
+        },
+        {
+          "name": "Filter pending claims",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/claims?status=Pending&search=",
+            "description": ""
+          }
+        },
+        {
+          "name": "Dashboard statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/claims/stats",
+            "description": ""
+          }
+        },
+        {
+          "name": "Get a claim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/claims/{{claimId}}",
+            "description": ""
+          }
+        },
+        {
+          "name": "Submit a sample claim (patient/hospital/admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policyNumber\": \"CC-2026-104201\",\n  \"age\": 32,\n  \"gender\": \"Male\",\n  \"claimAmount\": 18000,\n  \"disease\": \"Diagnostic evaluation\",\n  \"hospital\": \"Sample Care Hospital\",\n  \"admissionDate\": \"2026-11-08\",\n  \"dischargeDate\": \"2026-11-09\",\n  \"previousClaimHistory\": \"Synthetic test submission\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/claims",
+            "description": "Uses the server seed's first policy. Dates must be within the assigned active policy and not in the future. Saves the created internal claim ID for subsequent requests."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().claim.id; if (value) pm.collectionVariables.set('claimId', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Edit a pending claim (owner/hospital submitter/admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"disease\": \"Diagnostic evaluation\",\n  \"hospital\": \"Sample Care Hospital\",\n  \"claimAmount\": 17500\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/claims/{{claimId}}",
+            "description": "Only a Pending claim can be edited; policy identity cannot change."
+          }
+        },
+        {
+          "name": "Approve a pending claim (officer/admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Approved\",\n  \"remarks\": \"Sample supporting documents have been reviewed and verified.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/claims/{{claimId}}",
+            "description": "Mutates the claim and coverage usage. Final decisions are immutable. Run the officer/admin login first."
+          }
+        },
+        {
+          "name": "Upload a document (authorized submitter/admin)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "documents",
+                  "type": "file",
+                  "src": [],
+                  "description": "Choose PDF, PNG or JPEG files in Postman before sending."
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/claims/{{claimId}}/documents",
+            "description": "Choose up to five files, 5 MB each, on a Pending claim. File content signatures are checked. The returned claim contains document IDs."
+          }
+        },
+        {
+          "name": "Download a protected document",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/documents/{{documentId}}",
+            "description": "Set documentId from an upload response. Requires permission to view the associated claim."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Policies",
+      "item": [
+        {
+          "name": "List authorized policies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/policies",
+            "description": "Patients see their own policies; staff see all. New policies are assigned by the operator provisioning CLI."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Premium payments",
+      "item": [
+        {
+          "name": "List authorized payment receipts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/payments",
+            "description": ""
+          }
+        },
+        {
+          "name": "Create checkout order (patient only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policyId\": \"{{policyId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/payments/order",
+            "description": "The API uses the stored premium, not an amount supplied by this request. Captures internal orderId. Inspect provider: demo is a simulation; razorpay requires browser-hosted gateway checkout."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Successful API response', function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+                  "if (pm.response.code < 300) { const value = pm.response.json().order.id; if (value) pm.collectionVariables.set('orderId', value); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Confirm sandbox payment (demo provider only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"{{orderId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/payments/verify",
+            "description": "Use only after a demo-provider order. This records a sample premium receipt without moving money. Real Razorpay confirmation additionally needs razorpay_payment_id and razorpay_signature from hosted checkout. Repeating confirmation returns the original receipt."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Audit",
+      "item": [
+        {
+          "name": "Review audit history (officer/admin)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/audit",
+            "description": "Records submissions, reviews, payments, profile updates and operator actions."
+          }
+        }
+      ]
+    }
+  ]
+}
